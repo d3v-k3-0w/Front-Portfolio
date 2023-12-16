@@ -1,5 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
-/* eslint-disable no-unused-vars */
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';

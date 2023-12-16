@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { styles } from '../styles';
-// import { logitoIcon, menu, close } from '../assets';
 
 import menuSvg from '/icons/menu.svg';
 import closeSvg from '/icons/close.svg';
