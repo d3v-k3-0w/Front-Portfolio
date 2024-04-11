@@ -36,7 +36,7 @@ const Works = () => {
 					variants={fadeIn('', '', 0.1, 1)}
 					className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]">
 					Los siguientes proyectos muestran mis habilidades y experiencia a través de ejemplos
-					del mundo real en mis practicas. Cada proyecto se describe brevemente tambien tiene
+					del mundo real en mis practicas. Cada proyecto se describe brevemente también tiene
 					un enlace en la parte superior que te lleva al dominio de la pagina. Refleja mi
 					capacidad para resolver problemas complejos, trabajar con diferentes tecnologías y
 					gestionar proyectos de forma eficaz.

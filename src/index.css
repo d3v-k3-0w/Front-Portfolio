@@ -247,3 +247,39 @@
 			-1.8em -1.8em 0 0em #ffffff;
 	}
 }
+
+.Toastify__toast {
+	background: #2f3640;
+	color: #dcdde1;
+	border-radius: 10px;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	font-family: 'Helvetica Neue', sans-serif;
+}
+
+.Toastify__toast--error {
+	background: #2f3640;
+}
+
+.Toastify__toast--error .Toastify__progress-bar {
+	background: #c23616;
+}
+
+.Toastify__toast--warning {
+	background: #2f3640;
+}
+
+.Toastify__toast--warning .Toastify__progress-bar {
+	background: #f39c12;
+}
+
+.Toastify__toast--success {
+	background: #2f3640;
+}
+
+.Toastify__toast--success .Toastify__progress-bar {
+	background: #27ae60;
+}
+
+.Toastify__toast-body {
+	color: #dcdde1;
+}

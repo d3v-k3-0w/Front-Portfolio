@@ -1,10 +1,11 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from '@emailjs/browser';
 import { styles } from '../styles';
 import { EarthCanvas } from './canvas';
 import { SectionWrapper } from '../hoc';
 import { slideIn } from '../utils/motion';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
 	const formRef = useRef();
@@ -26,36 +27,31 @@ const Contact = () => {
 		e.preventDefault();
 		setLoading(true);
 
-		emailjs
-			.send(
-				'service_5p9128s',
-				'template_qbqvrdr',
-				{
-					from_name: form.name,
-					to_name: 'Kerwin Oliver',
-					from_email: form.email,
-					to_email: 'garciagomezkerwinoliver@gmail.com',
-					message: form.message,
-				},
-				'y0mVLWcLew22T9cKq'
-			)
-			.then(
-				() => {
-					setLoading(false);
-					alert('Thank you, I Will get back to you as soon as possible.');
+		fetch('http://localhost:5000/api/portfolio/send', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(form),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
 
-					setForm({
-						name: '',
-						email: '',
-						message: '',
-					});
-				},
-				(err) => {
-					setLoading(false);
-					console.log(err);
-					alert('Something went wrong.');
-				}
-			);
+				setLoading(false);
+				toast.success('Gracias, me pondré en contacto contigo lo antes posible.');
+
+				setForm({
+					name: '',
+					email: '',
+					message: '',
+				});
+			})
+			.catch((err) => {
+				setLoading(false);
+				console.log(err);
+				toast.error('Algo salió mal.');
+			});
 	};
 
 	return (
@@ -64,7 +60,7 @@ const Contact = () => {
 				variants={slideIn('left', 'tween', 0.2, 1)}
 				className="flex-[0.75] bg-black-100 p-8 rounded-2xl">
 				<p className={styles.sectionSubText}>Ponerse en contacto</p>
-				<h3 className={styles.sectionHeadText}>Contactame</h3>
+				<h3 className={styles.sectionHeadText}>Contácteme</h3>
 
 				<form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
 					<label className="flex flex-col">

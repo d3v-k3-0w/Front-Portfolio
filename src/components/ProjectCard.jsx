@@ -2,7 +2,17 @@ import { Tilt } from 'react-tilt';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../utils/motion';
 
-const ProjectCard = ({ index, name, description, tags, image, hostImg, hostLink }) => {
+const ProjectCard = ({
+	index,
+	name,
+	description,
+	tags,
+	image,
+	hostImg,
+	hostLink,
+	gitHubImg,
+	gitHubLink,
+}) => {
 	return (
 		<motion.div variants={fadeIn('up', 'spring', index * 0.5, 0.75)}>
 			<Tilt
@@ -16,10 +26,19 @@ const ProjectCard = ({ index, name, description, tags, image, hostImg, hostLink 
 					<img
 						src={`http://localhost:5000/assets/projects/${image}`}
 						alt={name}
-						className="w-full h-full object-cover rounded-2x1"
+						className="w-full h-full object-cover rounded-xl"
 					/>
 
 					<div className="absolute inset-0 flex justify-end m-3 card-img_hover">
+						<div
+							onClick={() => window.open(gitHubLink, '_blank')}
+							className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer">
+							<img
+								src={`http://localhost:5000/assets/projects/${gitHubImg}`}
+								alt="github"
+								className="w-1/2 h-1/2 object-contain"
+							/>
+						</div>
 						<div
 							onClick={() => window.open(hostLink, '_blank')}
 							className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer">
