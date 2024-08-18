@@ -1,45 +1,45 @@
 {
-	"name": "3d-portafolio",
-	"private": true,
-	"version": "0.0.0",
-	"type": "module",
-	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-		"preview": "vite preview"
-	},
-	"devDependencies": {
-		"@types/react": "^18.0.28",
-		"@types/react-dom": "^18.0.11",
-		"@vitejs/plugin-react": "^4.0.0",
-		"autoprefixer": "^10.4.14",
-		"eslint": "^8.38.0",
-		"eslint-plugin-react": "^7.32.2",
-		"eslint-plugin-react-hooks": "^4.6.0",
-		"eslint-plugin-react-refresh": "^0.3.4",
-		"postcss": "^8.4.23",
-		"tailwindcss": "^3.3.2",
-		"vite": "^4.3.2"
-	},
-	"dependencies": {
-		"@react-three/drei": "^9.77.0",
-		"@react-three/fiber": "^8.13.3",
-		"axios": "^1.4.0",
-		"framer-motion": "^10.12.16",
-		"install": "^0.13.0",
-		"maath": "^0.6.0",
-		"npm": "^9.7.1",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"react-loader-spinner": "^5.3.4",
-		"react-modal": "^3.16.1",
-		"react-router-dom": "^6.11.2",
-		"react-slick": "^0.29.0",
-		"react-tilt": "^1.0.2",
-		"react-toastify": "10.0.5",
-		"react-vertical-timeline-component": "^3.6.0",
-		"slick-carousel": "^1.8.1",
-		"three": "^0.149.0"
-	}
+  "name": "3d-portafolio",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "postcss": "^8.4.23",
+    "tailwindcss": "^3.3.2",
+    "vite": "^4.3.2"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.77.0",
+    "@react-three/fiber": "^8.13.3",
+    "axios": "^1.4.0",
+    "framer-motion": "^10.12.16",
+    "install": "^0.13.0",
+    "maath": "^0.6.0",
+    "npm": "^9.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-loader-spinner": "^5.3.4",
+    "react-modal": "^3.16.1",
+    "react-router-dom": "^6.11.2",
+    "react-slick": "^0.29.0",
+    "react-tilt": "^1.0.2",
+    "react-toastify": "10.0.5",
+    "react-vertical-timeline-component": "^3.6.0",
+    "slick-carousel": "^1.8.1",
+    "three": "^0.149.0"
+  }
 }
