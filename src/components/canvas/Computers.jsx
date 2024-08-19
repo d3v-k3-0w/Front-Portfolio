@@ -4,7 +4,7 @@ import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
 import CanvasLoader from '../Loader';
 
 const Computers = ({ scaleFactor, position }) => {
-  const computer = useGLTF('./voxel_web/scene.gltf');
+  const computer = useGLTF('./voxel_web/scene.gltf', './draco/');
 
   return (
     <mesh>
