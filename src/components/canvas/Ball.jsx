@@ -4,34 +4,37 @@ import { Decal, Float, OrbitControls, Preload, useTexture } from '@react-three/d
 
 import CanvasLoader from '../Loader';
 
-const Ball = (props) => {
-  const [decal] = useTexture([props.imgUrl]);
+const Ball = ({ imgUrl, position }) => {
+  const [decal] = useTexture([imgUrl]);
 
   return (
-    <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
-      <ambientLight intensity={0.25} />
-      <directionalLight position={[0, 0, 0.05]} />
+    <group position={position}>
+      <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
+        <ambientLight intensity={0.15} />
+        <directionalLight position={[0, 0, 0.5]} />
 
-      <mesh castShadow receiveShadow scale={2.75}>
-        <icosahedronGeometry args={[1, 1]} />
-
-        <meshStandardMaterial color='#fff8eb' polygonOffset polygonOffsetFactor={-5} flatShading />
-
-        <Decal position={[0, 0, 1]} rotation={[2 * Math.PI, 0, 6.25]} flatShading map={decal} />
-      </mesh>
-    </Float>
+        <mesh castShadow receiveShadow scale={3.0}>
+          <icosahedronGeometry args={[1, 1]} />
+          <meshStandardMaterial color='#fff8eb' polygonOffset polygonOffsetFactor={-5} flatShading />
+          <Decal position={[0, 0, 1]} rotation={[2 * Math.PI, 0, 6.25]} flatShading map={decal} />
+        </mesh>
+      </Float>
+    </group>
   );
 };
 
-const BallCanvas = ({ icon }) => {
+const BallCanvas = ({ technologies, positions }) => {
   return (
-    <Canvas frameloop='demand' gl={{ preserveDrawingBuffer: true }}>
+    <Canvas gl={{ preserveDrawingBuffer: true }} orthographic camera={{ position: [0, 0, 200], zoom: 15 }}>
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
-
-        <Ball imgUrl={icon} />
+        {technologies.map((technology, index) => (
+          <Ball
+            key={technology.name}
+            imgUrl={`${import.meta.env.VITE_API_URL}/assets/tech/${technology.icon}`}
+            position={positions[index]}
+          />
+        ))}
       </Suspense>
-
       <Preload all />
     </Canvas>
   );
