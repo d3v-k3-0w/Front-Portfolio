@@ -16,12 +16,12 @@ const Modal = ({ isOpen, onClose, addTestimonial }) => {
   });
 
   useEffect(() => {
-    /* ::función para deshabilitar el desplazamiento en el fondo cuando se abre el modal:: */
+    //++ función para deshabilitar el desplazamiento en el fondo cuando se abre el modal
     const disableBodyScroll = () => {
       document.body.style.overflow = 'hidden';
     };
 
-    /* ::función para habilitar el desplazamiento en el fondo cuando se cierra el modal:: */
+    //++ función para habilitar el desplazamiento en el fondo cuando se cierra el modal
     const enableBodyScroll = () => {
       document.body.style.overflow = 'auto';
     };
@@ -32,7 +32,7 @@ const Modal = ({ isOpen, onClose, addTestimonial }) => {
       enableBodyScroll();
     }
 
-    /* ::limpia los efectos al desmontar el componente:: */
+    //++ limpiar los efectos al desmontar el componente
     return () => {
       enableBodyScroll();
     };
@@ -59,22 +59,18 @@ const Modal = ({ isOpen, onClose, addTestimonial }) => {
       formData.append('name', newTestimonial.name);
       formData.append('designation', newTestimonial.designation);
       formData.append('company', newTestimonial.company);
-      formData.append('image', newTestimonial.image); // Asegúrate de que newTestimonial.image sea el archivo seleccionado
+      formData.append('image', newTestimonial.image);
 
-      /* ::realizar la solicitud POST a la API con FormData:: */
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/portfolio/new-testimonial`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data', // importante: establece el encabezado correcto
-        },
-      });
+      //++ realizar la solicitud POST a la API con FormData
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/portfolio/new-testimonial`, formData);
 
-      /* ::manejar la respuesta del servidor (puedes mostrar un mensaje de éxito, etc.):: */
+      //++ manejar la respuesta del servidor (puedes mostrar un mensaje de éxito, etc.)
       console.log('Testimonio agregado:', response.data);
 
-      // Llama a la función para agregar el testimonio a Feedbacks
+      //++ llamar a la función para agregar el testimonio a Feedbacks
       addTestimonial(response.data);
 
-      /* ::cerrar el modal después de agregar el testimonio:: */
+      //++ cerrar el modal después de agregar el testimonio
       onClose();
     } catch (err) {
       console.error('Error al agregar el testimonio:', err);
