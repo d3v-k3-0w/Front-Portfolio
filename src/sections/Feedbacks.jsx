@@ -1,17 +1,15 @@
-import { motion } from 'framer-motion';
-import { styles } from '../styles';
-import { SectionWrapper } from '../hoc';
-import { textVariant } from '../utils/motion';
-import { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
-import Modal from './Modal';
-import FeedbackCard from './FeedbackCard';
-import DefaultFeedbackCard from './DefaultFeedbackCard';
+import 'slick-carousel/slick/slick.css';
+import DefaultFeedbackCard from '../components/DefaultFeedbackCard';
+import FeedbackCard from '../components/FeedbackCard';
+import Modal from '../components/Modal';
+import { SectionWrapper } from './hoc';
+import { styles } from '../styles';
+import { textVariant } from '../utils/motion';
 
 const Feedbacks = () => {
   const [testimonials, setTestimonials] = useState([]);
@@ -23,7 +21,7 @@ const Feedbacks = () => {
   };
 
   useEffect(() => {
-    // Realiza la consulta al servidor y actualiza el estado 'testimonials' antes de renderizar
+    //++ realizar la consulta al servidor y actualiza el estado 'testimonials' antes de renderizar
     const fetchData = async () => {
       try {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/portfolio/testimonials`);
@@ -34,16 +32,16 @@ const Feedbacks = () => {
       }
     };
 
-    fetchData(); // Llama a fetchData cuando se monta el componente
+    fetchData(); // llamar a fetchData cuando se monta el componente
   }, []);
 
   const settings = {
     dots: true,
     infinite: false,
-    slidesToShow: 3, // Cantidad de tarjetas a mostrar en una fila
+    slidesToShow: 3, // cantidad de tarjetas a mostrar en una fila
     slidesToScroll: 1,
     speed: 500,
-    arrows: true, // Puedes habilitar o deshabilitar las flechas de navegación
+    arrows: true, // habilitar o deshabilitar las flechas de navegación
     responsive: [
       {
         breakpoint: 1026, //LAPTOPS
@@ -91,7 +89,7 @@ const Feedbacks = () => {
         </Slider>
       </div>
 
-      {/* Renderizar el modal cuando isModal sea verdadero y pasar la función para agregar testimonios */}
+      {/* renderizar el modal cuando isModal sea verdadero y pasar la función para agregar testimonios */}
       {isModal && <Modal isOpen={isModal} onClose={() => setIsModal(false)} addTestimonial={addTestimonial} />}
     </div>
   );

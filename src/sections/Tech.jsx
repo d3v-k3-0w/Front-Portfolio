@@ -1,8 +1,8 @@
-import { BallCanvas } from './canvas';
-import { SectionWrapper } from '../hoc';
-import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { Vector3 } from 'three';
+import { SectionWrapper } from './hoc';
+import { BallCanvas } from '.';
 
 const Tech = () => {
   const [technologies, setTechnologies] = useState([]);

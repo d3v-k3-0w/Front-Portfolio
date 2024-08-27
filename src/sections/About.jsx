@@ -1,10 +1,10 @@
+import axios from 'axios';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import ServiceCard from '../components/ServiceCard';
+import { SectionWrapper } from './hoc';
 import { styles } from '../styles';
 import { fadeIn, textVariant } from '../utils/motion';
-import { SectionWrapper } from '../hoc';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import ServiceCard from './ServiceCard';
 
 const About = () => {
   const [services, setServices] = useState([]);

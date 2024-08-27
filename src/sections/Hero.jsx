@@ -1,7 +1,7 @@
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { styles } from '../styles';
-import { ComputersCanvas } from './canvas';
-import { motion } from 'framer-motion';
+import { ComputersCanvas } from '.';
 
 const Hero = () => {
   const [loop, setLoop] = useState(0);

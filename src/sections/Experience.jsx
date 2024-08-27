@@ -1,15 +1,13 @@
-import 'react-vertical-timeline-component/style.min.css';
-import { VerticalTimeline } from 'react-vertical-timeline-component';
+import axios from 'axios';
 import { motion } from 'framer-motion';
-import { styles } from '../styles';
-import { SectionWrapper } from '../hoc';
-import { textVariant } from '../utils/motion';
-
 import { useEffect, useState } from 'react';
 import { FidgetSpinner } from 'react-loader-spinner';
-
-import axios from 'axios';
-import ExperienceCard from './ExperienceCard';
+import { VerticalTimeline } from 'react-vertical-timeline-component';
+import 'react-vertical-timeline-component/style.min.css';
+import { SectionWrapper } from './hoc';
+import { styles } from '../styles';
+import { textVariant } from '../utils/motion';
+import ExperienceCard from '../components/ExperienceCard';
 
 const Experience = () => {
   const [experiences, setExperiences] = useState([]);

@@ -1,10 +1,10 @@
-import { motion } from 'framer-motion';
-import { styles } from '../styles';
-import { SectionWrapper } from '../hoc';
-import { fadeIn, textVariant } from '../utils/motion';
-import { useState, useEffect } from 'react';
 import axios from 'axios';
-import ProjectCard from './ProjectCard';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { SectionWrapper } from './hoc';
+import { styles } from '../styles';
+import { fadeIn, textVariant } from '../utils/motion';
+import ProjectCard from '../components/ProjectCard';
 
 const Works = () => {
   const [projects, setProjects] = useState([]);
